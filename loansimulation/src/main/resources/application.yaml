@@ -1,0 +1,21 @@
+ktor:
+    application:
+        modules:
+            - br.com.challenge.backend.ApplicationKt.module
+    deployment:
+        port: "$PORT:8080"
+
+    environment: "$ENV:dev"
+
+    cache: "redis://localhost:6379"
+    messaging: "localhost:9092"
+    feeApi: "http://localhost:8081/api/v1/fees/"
+
+    dev:
+        db:
+            url: "jdbc:postgresql://localhost:5432/credit-simulation"
+            user: "postgres"
+            password: "root"
+            driver: "org.postgresql.Driver"
+            schema: "public"
+            maxPoolSize: 5

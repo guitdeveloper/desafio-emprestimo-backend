@@ -1,0 +1,19 @@
+ktor:
+    application:
+        modules:
+            - br.com.challenge.backend.ApplicationKt.module
+    deployment:
+        port: "$PORT:8081"
+
+    environment: "$ENV:dev"
+
+    cache: "redis://localhost:6379"
+
+    dev:
+        db:
+            url: "jdbc:postgresql://localhost:5432/fee"
+            user: "postgres"
+            password: "root"
+            driver: "org.postgresql.Driver"
+            schema: "public"
+            maxPoolSize: 5
